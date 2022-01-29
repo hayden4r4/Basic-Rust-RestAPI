@@ -1,0 +1,2 @@
+[global.databases]
+rockettest = { url = "postgres://haydenr4:password@localhost/rockettest" }
