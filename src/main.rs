@@ -19,23 +19,14 @@ pub use serde::{Serialize, Deserialize};
 pub mod db;
 pub mod models;
 pub mod schema;
-
+pub mod routes;
 
 #[database("rockettest")]
 pub struct DBPool(diesel::PgConnection);
 
-#[get("/")]
-fn index() -> Value {
-    let sample: Value = json!({
-        "firstname": "Hayden",
-        "lastname": "Rose"
-    });
-    sample
-}
-
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/", routes![index])
+        .mount("/", routes![routes::index])
         .attach(DBPool::fairing())
 }   
