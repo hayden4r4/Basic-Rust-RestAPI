@@ -1,8 +1,8 @@
 table! {
     testtable (id) {
-        id -> Int4,
+        id -> Int8,
         timestamp -> Date,
         symbol -> Varchar,
-        price -> Float8,
+        price -> Float4,
     }
 }

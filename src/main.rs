@@ -27,6 +27,6 @@ pub struct DBPool(diesel::PgConnection);
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/", routes![routes::index])
+        .mount("/", routes![routes::index, routes::insert_to_testtable, routes::get_from_testtable])
         .attach(DBPool::fairing())
 }   
